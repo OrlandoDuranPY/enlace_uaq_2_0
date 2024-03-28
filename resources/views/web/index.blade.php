@@ -11,6 +11,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-slate-900">
-
+        <h1>Home</h1>
     </body>
 </html>
