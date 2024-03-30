@@ -4,7 +4,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
+/* ========================================
+Rutas para vista del cliente
+========================================= */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+/* ========================================
+Rutas para vista del administrador
+========================================= */
 
 Route::get('/dashboard', function () {
     return view('dashboard');

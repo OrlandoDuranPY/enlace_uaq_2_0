@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('web.layout')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('title')
+    Inicio
+@endsection
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="bg-slate-900">
-        <h1>Home</h1>
-    </body>
-</html>
+@section('content')
+    <div class="w-full h-screen flex flex-col">
+        {{-- Barra de navegacion --}}
+        <x-navbar />
+
+        {{-- Espacio restante de la pantalla --}}
+        <div class="flex-1 flex items-center">
+            {{-- Buscador centrado --}}
+            <div class="mx-auto">
+                <x-home-search-bar/>
+            </div>
+        </div>
+    </div>
+@endsection
