@@ -10,7 +10,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="">
+    <body class="font-quicksand">
         @yield('content')
     </body>
 </html>

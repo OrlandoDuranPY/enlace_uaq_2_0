@@ -15,6 +15,11 @@ export default {
                 // sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
             },
+            fontWeight: {
+                normal: 400,
+                semibold: 600,
+                bold: 700,
+            },
             colors: {
                 'enlace-red': '#ED5660',
                 'enlace-green': '#7AD8DB',
