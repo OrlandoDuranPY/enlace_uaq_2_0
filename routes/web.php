@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\CurriculaController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\VacanciesController;
 use Illuminate\Support\Facades\Route;
 
 /* ========================================
@@ -10,8 +11,9 @@ Rutas para vista del cliente
 ========================================= */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 // Rutas de Curriculums
-Route::get('/curricula', [CurriculaController::class, 'index'])->name('curricula.index');
+Route::get('/curriculums', [CurriculaController::class, 'index'])->name('curricula.index');
 // Rutas de Vacantes
+Route::get('/vacantes', [VacanciesController::class, 'index'])->name('vacancies.index');
 
 /* ========================================
 Rutas para vista del administrador
