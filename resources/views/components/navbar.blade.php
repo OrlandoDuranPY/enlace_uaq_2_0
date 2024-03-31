@@ -5,8 +5,8 @@
 
         {{-- Menu del navbar --}}
         <div class="space-x-5 text-white uppercase font-semibold">
-            <a href="">Inicio</a>
-            <a href="">Curriculums</a>
+            <a href="{{route('home')}}">Inicio</a>
+            <a href="{{route('curricula.index')}}">Curriculums</a>
             <a href="">Vacantes</a>
         </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Web\CurriculaController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +9,9 @@ use Illuminate\Support\Facades\Route;
 Rutas para vista del cliente
 ========================================= */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+// Rutas de Curriculums
+Route::get('/curricula', [CurriculaController::class, 'index'])->name('curricula.index');
+// Rutas de Vacantes
 
 /* ========================================
 Rutas para vista del administrador
