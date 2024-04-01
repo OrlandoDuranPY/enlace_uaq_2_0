@@ -7,7 +7,21 @@ use Illuminate\Http\Request;
 
 class CurriculaController extends Controller
 {
+    /* ========================================
+    Dashboard de curriculums
+    ========================================= */
     public function index(){
         return view('web.curricula.index');
     }
+
+    /* ========================================
+    Vista para registrar estudiante
+    ========================================= */
+    public function createStudentCurriculum(){
+        return view('web.curricula.student.create');
+    }
+
+    /* ========================================
+    Vista para registrar docente
+    ========================================= */
 }

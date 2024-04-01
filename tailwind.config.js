@@ -30,5 +30,5 @@ export default {
         },
     },
 
-    plugins: [forms, require("tailwind-scrollbar")],
+    plugins: [forms, require("tailwind-scrollbar"), require("flowbite/plugin")],
 };
