@@ -49,9 +49,8 @@
                     </div>
                 </div>
 
-                {{-- Acerca de mi --}}
                 <div class="w-full">
-                    {{-- Correo --}}
+                    {{-- Acerca de mi --}}
                     <div>
                         <label for="about-me" class="block mb-1 text-xl font-semibold">Acerca de mi</label>
                         <textarea id="about-me"
@@ -65,8 +64,8 @@
             {{-- Datos academicos --}}
             <div class="space-y-5">
                 <h2 class="text-2xl uppercase font-semibold">Datos académicos</h2>
-                {{-- Programa de estudios --}}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mb-5">
+                    {{-- Programa de estudios --}}
                     <div>
                         <label for="study-program" class="block mb-1 text-xl font-semibold">Programa de estudios</label>
                         <select id="study-program"
@@ -94,24 +93,51 @@
                         </select>
                     </div>
                     {{-- Semestre --}}
-                        <div>
-                            <label for="study-program" class="block mb-1 text-xl font-semibold">Programa de estudios</label>
-                            <select id="study-program"
-                                class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green border-none rounded-lg bg-enlace-gray text-enlace-dark-gray">
-                                <option>-- Selecciona una opcion --</option>
-                                <option>1°</option>
-                                <option>2°</option>
-                                <option>3°</option>
-                                <option>4°</option>
-                                <option>5°</option>
-                                <option>6°</option>
-                                <option>7°</option>
-                                <option>8°</option>
-                                <option>9°</option>
-                                <option>10°</option>
-                                <option>Egresado</option>
-                            </select>
+                    <div>
+                        <label for="semester" class="block mb-1 text-xl font-semibold">Semestre</label>
+                        <select id="semester"
+                            class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green border-none rounded-lg bg-enlace-gray text-enlace-dark-gray">
+                            <option>-- Selecciona una opcion --</option>
+                            <option>1°</option>
+                            <option>2°</option>
+                            <option>3°</option>
+                            <option>4°</option>
+                            <option>5°</option>
+                            <option>6°</option>
+                            <option>7°</option>
+                            <option>8°</option>
+                            <option>9°</option>
+                            <option>10°</option>
+                            <option>Egresado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mb-5">
+                    {{-- Logros académicos --}}
+                    <div>
+                        <label for="academic-achievements" class="block mb-1 text-xl font-semibold">Logros académicos</label>
+                        <input id="academic-achievements" type="text"
+                            class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
+                            placeholder="Ejemplo: cursos, diplomados o talleres">
+                    </div>
+
+                    {{-- Programa Académico --}}
+                    <div>
+                        <label class="block mb-1 text-xl font-semibold">Programa académico</label>
+                        <div class="flex items-center gap-2">
+                            <input type="radio" id="professional_practices" name="academic_program">
+                            <label
+                                for="professional_practices"
+                                class="font-semibold">Prácticas profesionales</label>
                         </div>
+                        <div class="flex items-center gap-2">
+                            <input type="radio" id="employment" name="academic_program">
+                            <label
+                                for="employment"
+                                class="font-semibold">Empleo</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
