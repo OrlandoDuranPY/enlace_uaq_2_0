@@ -1,11 +1,11 @@
-@extends('web.layout')
+@extends('web.form-layout')
 
 @section('title')
     Registrar estudiante
 @endsection
 
 @section('content')
-    <div class="flex-1 flex flex-col py-10 container mx-auto overflow-hidden">
+    <div class="flex-1 flex flex-col py-10 container mx-auto overflow-hidden mt-16 lg:mt-0">
         {{-- Formulario de registro --}}
         <h1 class="text-3xl uppercase text-enlace-red font-semibold mx-auto">Registrar estudiante</h1>
         <form class="px-5 lg:p-0.5 space-y-10">

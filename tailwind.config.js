@@ -22,6 +22,7 @@ export default {
             },
             colors: {
                 "enlace-red": "#ED5660",
+                "enlace-red-hover": "#F07C82",
                 "enlace-green": "#7AD8DB",
                 "enlace-dark-green": "#00BFC3",
                 "enlace-gray": "#F3F2F2",

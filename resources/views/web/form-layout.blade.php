@@ -8,11 +8,10 @@
         <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
         <link rel="icon" href="{{ asset('img/logo-color.svg') }}" type="image/svg+xml">
 
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="w-full h-screen flex flex-col bg-gray-50">
+    <body class="w-full flex flex-col bg-gray-50">
         <x-navbar />
         @yield('content')
     </body>
