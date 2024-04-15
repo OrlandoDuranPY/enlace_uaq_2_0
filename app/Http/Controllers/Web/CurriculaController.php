@@ -24,4 +24,7 @@ class CurriculaController extends Controller
     /* ========================================
     Vista para registrar docente
     ========================================= */
+    public function createTeacherCurriculum(){
+        return view('web.curricula.teacher.create');
+    }
 }

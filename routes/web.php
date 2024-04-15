@@ -7,20 +7,21 @@ use App\Http\Controllers\Web\VacanciesController;
 use Illuminate\Support\Facades\Route;
 
 /* ========================================
-Rutas para vista del cliente
+Rutas para vista del usuario
 ========================================= */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 // Rutas de Curriculums
 Route::get('/curriculums', [CurriculaController::class, 'index'])->name('curricula.index');
-Route::get('/curriculums/registrar/estudiante', [CurriculaController::class, 'createStudentCurriculum'])->name('create.student.curricula');
+Route::get('/curriculums/registrar/estudiante', [CurriculaController::class, 'createStudentCurriculum'])->name('curricula.create.student');
+Route::get('/curriculums/registrar/docente', [CurriculaController::class, 'createTeacherCurriculum'])->name('curricula.create.teacher');
 
 // Rutas de Vacantes
 Route::get('/vacantes', [VacanciesController::class, 'index'])->name('vacancies.index');
+Route::get('/vacantes/registrar', [VacanciesController::class, 'createVacancy'])->name('vacancies.create');
 
 /* ========================================
 Rutas para vista del administrador
 ========================================= */
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

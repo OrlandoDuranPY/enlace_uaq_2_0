@@ -14,6 +14,8 @@
     </head>
     <body class="w-full h-screen flex flex-col bg-gray-50">
         <x-navbar />
-        @yield('content')
+        <div class="flex-1 flex flex-col lg:py-20 container mx-auto overflow-hidden mt-16 lg:mt-0">
+            @yield('content')
+        </div>
     </body>
 </html>

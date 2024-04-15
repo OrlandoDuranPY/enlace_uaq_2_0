@@ -10,4 +10,8 @@ class VacanciesController extends Controller
     public function index(){
         return view('web.vacancies.index');
     }
+
+    public function createVacancy(){
+        return view('web.vacancies.create');
+    }
 }
