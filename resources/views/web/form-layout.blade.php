@@ -8,7 +8,7 @@
 
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
     <link rel="icon" href="{{ asset('img/logo-color.svg') }}" type="image/svg+xml">
-
+    @livewireStyles
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -18,6 +18,7 @@
     <div class="flex-1 flex flex-col py-10 md:py-0 lg:py-20 container mx-auto overflow-hidden mt-16 lg:mt-0">
         @yield('content')
     </div>
+    @livewireScripts
 </body>
 
 </html>
