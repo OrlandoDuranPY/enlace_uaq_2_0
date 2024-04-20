@@ -164,13 +164,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-5">
             {{-- Experiencia --}}
             <div>
-                <label for="experience" class="block mb-1 text-xl font-semibold">Experiencia</label>
-                <input id="experience" type="text" wire:model="experience"
-                    class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
-                    placeholder="Ingrese un área de experiencia">
-                @error('experience')
-                    <span class="text-sm text-enlace-red">{{ $message }}</span>
-                @enderror
+                <x-add-input title="Experiencia" name="experience" />
+                <div class="space-y-2">
+                    @foreach ($experience as $index => $exp)
+                        <x-remove-input name="experience" :index="$index"
+                            placeholder="Ingrese un área de experiencia" />
+                        @error('experience.' . $index)
+                            <span class="text-sm text-enlace-red">{{ $message }}</span>
+                        @enderror
+                    @endforeach
+                </div>
             </div>
             {{-- Proyectos --}}
             <div>
@@ -192,7 +195,7 @@
             {{-- Experiencia --}}
             <div>
                 <label for="#" class="block mb-1 text-xl font-semibold">Datos de la persona o empresa <span
-                    class="text-enlace-red">*</span></label>
+                        class="text-enlace-red">*</span></label>
                 <div class="space-y-2">
                     {{-- Nombre de la referencia --}}
                     <div class="flex items-center bg-enlace-gray rounded-lg content-center">
@@ -201,10 +204,10 @@
                         <input id="reference_name" type="text" wire:model="reference.name"
                             class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                             placeholder="Ingrese el nombre de la referencia">
-                        </div>
-                        @error('reference.name')
-                            <span class="text-sm text-enlace-red">{{ $message }}</span>
-                        @enderror
+                    </div>
+                    @error('reference.name')
+                        <span class="text-sm text-enlace-red">{{ $message }}</span>
+                    @enderror
                     {{-- Correo de la referencia --}}
                     <div class="flex items-center bg-enlace-gray rounded-lg">
                         <label for="reference_email"
@@ -212,10 +215,10 @@
                         <input id="reference_email" type="email" wire:model="reference.email"
                             class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                             placeholder="Ingrese el correo de la referencia">
-                        </div>
-                        @error('reference.email')
-                            <span class="text-sm text-enlace-red">{{ $message }}</span>
-                        @enderror
+                    </div>
+                    @error('reference.email')
+                        <span class="text-sm text-enlace-red">{{ $message }}</span>
+                    @enderror
 
                     {{-- Telefono de la referencia --}}
                     <div class="flex items-center bg-enlace-gray rounded-lg">
@@ -224,10 +227,10 @@
                         <input id="reference_phone" type="number" wire:model="reference.phone"
                             class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                             placeholder="Ingrese el teléfono de la referencia">
-                        </div>
-                        @error('reference.phone')
-                            <span class="text-sm text-enlace-red">{{ $message }}</span>
-                        @enderror
+                    </div>
+                    @error('reference.phone')
+                        <span class="text-sm text-enlace-red">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
         </div>

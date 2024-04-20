@@ -21,12 +21,12 @@ return new class extends Migration
             $table->text('about_me');
             $table->foreignId('study_program_id')->constrained('study_programs')->nullable();
             $table->integer('semester')->nullable();
-            $table->json('academic_achievement')->nullable();
+            $table->json('academic_achievement');
             $table->enum('academic_program', ['practices', 'job'])->nullable();
             $table->json('study_level')->nullable();
             $table->json('main_degree')->nullable();
-            $table->json('experience')->nullable();
-            $table->json('project')->nullable();
+            $table->json('experience');
+            $table->json('project');
             $table->json('reference');
             $table->enum('type', ['student', 'graduate', 'teacher']);
             $table->softDeletes();
