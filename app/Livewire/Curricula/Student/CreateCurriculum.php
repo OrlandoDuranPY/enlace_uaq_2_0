@@ -58,9 +58,9 @@ class CreateCurriculum extends Component
     ========================================= */
     public function mount()
     {
-        // $this->addInput('academic_achievement');
+        $this->addInput('academic_achievement');
         $this->addInput('experience');
-        // $this->addInput('project');
+        $this->addInput('project');
     }
 
 
@@ -160,7 +160,7 @@ class CreateCurriculum extends Component
             }
         }
         // Remover Proyecto
-        elseif ($value === 'projects') {
+        elseif ($value === 'project') {
             if (count($this->project) > 1) {
                 unset($this->project[$key]);
                 $this->project = array_values($this->project);

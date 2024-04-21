@@ -8,7 +8,7 @@
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M5 12l14 0" />
         </svg></button>
-    <input id="experience" type="text" wire:model="experience.{{ $index }}"
+    <input id="{{$name}}" type="text" wire:model="{{$name}}.{{ $index }}"
         class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
         placeholder="{{ $placeholder }}">
 </div>
