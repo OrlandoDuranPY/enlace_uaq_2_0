@@ -8,7 +8,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-5">
             {{-- Nombre --}}
             <div>
-                <x-required-label id="name" name="Nombre"/>
+                <x-required-label name="name" title="Nombre"/>
                 <input id="name" type="text" wire:model="name"
                     class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                     placeholder="Ingrese el nombre o los nombres pila del estudiante">
@@ -18,7 +18,7 @@
             </div>
             {{-- Apellidos --}}
             <div>
-                <x-required-label id="last_name" name="Apellidos"/>
+                <x-required-label name="last_name" title="Apellidos"/>
                 <input id="last_name" type="text" wire:model="last_name"
                     class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                     placeholder="Ingrese el apellido o los apellidos del estudiante">
@@ -32,7 +32,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-5">
             {{-- Correo --}}
             <div>
-                <x-required-label id="email" name="Correo"/>
+                <x-required-label name="email" title="Correo"/>
                 <input id="email" type="email" wire:model="email"
                     class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                     placeholder="Ejemplo: micorreo@email.com">
@@ -42,7 +42,7 @@
             </div>
             {{-- Telefono --}}
             <div>
-                <x-required-label id="phone" name="Teléfono"/>
+                <x-required-label name="phone" title="Teléfono"/>
                 <input id="phone" type="number" wire:model="phone"
                     class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none px-5 py-2 bg-enlace-gray text-enlace-dark-gray placeholder-enlace-dark-gray"
                     placeholder="Ejemplo: 123 456 7890">
@@ -55,7 +55,7 @@
         <div class="w-full">
             {{-- Acerca de mi --}}
             <div>
-                <x-required-label id="about_me" name="Acerca de mi"/>
+                <x-required-label name="about_me" title="Acerca de mi"/>
                 <textarea id="about_me" wire:model.live="about_me"
                     class="w-full resize-none focus:ring-2 focus:ring-enlace-green focus:border-enlace-green rounded-lg border-none bg-enlace-gray placeholder-enlace-dark-gray pl-5 pr-10 py-2"
                     placeholder="Ingrese una breve descripción del estudiante"></textarea>
@@ -78,7 +78,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-5">
             {{-- Programa de estudios --}}
             <div>
-                <x-required-label id="study_program_id" name="Programa de estudios"/>
+                <x-required-label name="study_program_id" title="Programa de estudios"/>
                 <select id="study_program_id" wire:model="study_program_id"
                     class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green border-none rounded-lg bg-enlace-gray text-enlace-dark-gray">
                     <option>-- Selecciona una opcion --</option>
@@ -97,7 +97,7 @@
             </div>
             {{-- Semestre --}}
             <div>
-                <x-required-label id="semester" name="Semestre"/>
+                <x-required-label name="semester" title="Semestre"/>
                 <select id="semester" wire:model="semester"
                     class="w-full focus:ring-2 focus:ring-enlace-green focus:border-enlace-green border-none rounded-lg bg-enlace-gray text-enlace-dark-gray">
                     <option selected>-- Selecciona una opcion --</option>
@@ -122,7 +122,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-5">
             {{-- Logros académicos --}}
             <div>
-                <x-add-input title="Logros académicos" name="academic_achievement" />
+                <x-add-input title="Logros académicos" name="academic_achievement" :required="false"/>
                 <div class="space-y-2">
                     @foreach ($academic_achievement as $index => $exp)
                         <x-remove-input name="academic_achievement" :index="$index"
@@ -136,7 +136,7 @@
 
             {{-- Programa Académico --}}
             <div>
-                <x-required-label id="professional_practices" name="Programa académico"/>
+                <x-required-label name="professional_practices" title="Programa académico"/>
                 <div class="flex items-center gap-2">
                     <input type="radio" id="professional_practices" name="academic_program"
                         wire:model="academic_program" value="practices">
@@ -160,7 +160,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mb-5">
             {{-- Experiencia --}}
             <div>
-                <x-add-input title="Experiencia" name="experience" />
+                <x-add-input title="Experiencia" name="experience" :required="false"/>
                 <div class="space-y-2">
                     @foreach ($experience as $index => $exp)
                         <x-remove-input name="experience" :index="$index"
@@ -173,7 +173,7 @@
             </div>
             {{-- Proyectos --}}
             <div>
-                <x-add-input title="Projectos" name="project" />
+                <x-add-input title="Projectos" name="project" :required="false"/>
                 <div class="space-y-2">
                     @foreach ($project as $index => $exp)
                         <x-remove-input name="project" :index="$index"
@@ -192,7 +192,7 @@
         <x-sub-title subtitle="Datos referencias"/>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 mb-5">
             <div>
-                <x-required-label id="reference_name" name="Datos de la persona o empresa"/>
+                <x-required-label name="reference_name" title="Datos de la persona o empresa"/>
                 <div class="space-y-2">
                     {{-- Nombre de la referencia --}}
                     <div class="flex items-center bg-enlace-gray rounded-lg content-center">

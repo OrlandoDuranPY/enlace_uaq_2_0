@@ -32,12 +32,16 @@ class TeacherRequest extends FormRequest
             'phone' => 'required|numeric|digits:10',
             'about_me' => 'required|string|max:500',
             // Datos academicos
-            'study_level' => 'required|string|exists:study_programs,id',
-            'principal_degree' => 'required|string|max:255',
-            'academic_achievement' => 'nullable|string|max:100',
+            'study_level.0' => 'required|string|max:100',
+            'study_level.*' => 'required|string|max:100',
+            'main_degree' => 'required|string|max:255',
+            'academic_achievement.0' => 'nullable|string|max:100',
+            'academic_achievement.*' => 'nullable|string|max:100',
             // Datos experiencia
-            'experience' => 'nullable|string|max:100',
-            'project' => 'nullable|string|max:100',
+            'experience.0' => 'nullable|string|max:100',
+            'experience.*' => 'nullable|string|max:100',
+            'project.0' => 'nullable|string|max:100',
+            'project.*' => 'nullable|string|max:100',
             // Referencias
             'reference.name' => 'required|string|max:255',
             'reference.email' => 'required|email|max:254',

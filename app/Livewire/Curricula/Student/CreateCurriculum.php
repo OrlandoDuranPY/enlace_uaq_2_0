@@ -3,8 +3,10 @@
 namespace App\Livewire\Curricula\Student;
 
 use Livewire\Component;
+use App\Models\Activity;
 use App\Models\Curriculum;
 use App\Models\StudyProgram;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Curriculum\StudentRequest;
 
 class CreateCurriculum extends Component
@@ -80,24 +82,42 @@ class CreateCurriculum extends Component
         // Validar los datos utilizando el FormRequest
         $validated = $this->validate();
 
-
-        $validated['academic_achievement'] = json_encode($validated['academic_achievement']);
-        $validated['experience'] = json_encode($validated['experience']);
-        $validated['project'] = json_encode($validated['project']);
-
         // Guardar el curriculum en la base de datos
-        $curriculum = Curriculum::create($validated);
+        // dd($validated);
+        $curriculum = Curriculum::create([
+            'name' => $validated['name'],
+            'last_name' => $validated['last_name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'about_me' => $validated['about_me'],
+            'study_program_id' => $validated['study_program_id'],
+            'semester' => $validated['semester'],
+            'academic_achievement' => json_encode($validated['academic_achievement']),
+            'academic_program' => $validated['academic_program'],
+            'experience' => json_encode($validated['experience']),
+            'project' => json_encode($validated['project']),
+            'reference' => json_encode($validated['reference']),
+            'type' => $validated['type'],
+        ]);
 
         if ($curriculum) {
             // Crear el registro en la tabla actividades
+            // $user_id = Auth::id();
+            // Activity::create([
+            //     'name' => 'Curriculum de estudiante creado: '. $validated['name']. ' '. $validated['last_name'],
+            //     'user_id' => $user_id,
+            // ]);
 
             // Emitir un toast de exito
+            $message = __('messages.success.record_created');
+            $this->dispatch('record_created', $message);
 
             // Resetear valores
             $this->reset();
             $this->mount();
         }
     }
+
 
     /* ========================================
     Funcion para agregar inputs nuevos
