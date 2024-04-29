@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('schedule');
             $table->text('description');
             $table->text('observations')->nullable();
-            $table->integer('contact_phone')->nullable();
+            $table->string('contact_phone')->nullable();
             $table->string('contact_email')->nullable();
             $table->softDeletes();
             $table->timestamps();

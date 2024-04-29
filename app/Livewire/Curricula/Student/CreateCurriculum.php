@@ -112,7 +112,7 @@ class CreateCurriculum extends Component
             $message = __('messages.success.record_created');
             $this->dispatch('record_created', $message);
 
-            // Resetear valores
+            // Limpiar los campos del formulario
             $this->reset();
             $this->mount();
         }
