@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\CurriculaController;
 use App\Http\Controllers\Web\HomeController;
@@ -22,6 +23,10 @@ Route::get('/vacantes/registrar', [VacanciesController::class, 'createVacancy'])
 /* ========================================
 Rutas para vista del administrador
 ========================================= */
+Route::middleware('auth')->group(function () {
+    Route::get('/panel-administrador', [AdminController::class, 'index'])->name('admin.index');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

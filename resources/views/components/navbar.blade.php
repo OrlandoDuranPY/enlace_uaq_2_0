@@ -33,22 +33,49 @@
                             class="block px-4 py-2 text-enlace-dark-gray hover:bg-enlace-gray">Docente</a>
                     </li>
                     <li>
-                        <a href="{{ route('vacancies.create') }}" class="block px-4 py-2 text-enlace-dark-gray hover:bg-enlace-gray">Vacante</a>
+                        <a href="{{ route('vacancies.create') }}"
+                            class="block px-4 py-2 text-enlace-dark-gray hover:bg-enlace-gray">Vacante</a>
                     </li>
                 </ul>
             </div>
         </div>
 
         {{-- Inicio de sesion --}}
-        <a href="#" class="text-white"><svg xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-user-filled" width="24" height="24" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" stroke-width="0"
-                    fill="currentColor" />
-                <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z"
-                    stroke-width="0" fill="currentColor" />
-            </svg></a>
+        @auth
+
+        <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
+            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownAvatar" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-52 dark:bg-gray-700 dark:divide-gray-600">
+                <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                  <div>{{Auth::user()->name}}</div>
+                  <div class="font-medium truncate">{{Auth::user()->email}}</div>
+                </div>
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
+                  <li>
+                    <a href="{{route('admin.index')}}" class="block px-4 py-2 hover:bg-enlace-gray">Panel de administrador</a>
+                  </li>
+                </ul>
+                <div class="py-2">
+                  <a href="#" class="block px-4 py-2 text-sm text-enlace-red hover:bg-enlace-gray">Sign out</a>
+                </div>
+            </div>
+
+        @else
+            <a href="{{ route('login') }}" class="text-white"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-user-filled" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" stroke-width="0"
+                        fill="currentColor" />
+                    <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z"
+                        stroke-width="0" fill="currentColor" />
+                </svg></a>
+        @endauth
+
+
 
     </div>
 </nav>
