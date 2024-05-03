@@ -96,11 +96,11 @@ class CreateCurriculum extends Component
 
         if ($curriculum) {
             // Crear el registro en la tabla actividades
-            // $user_id = Auth::id();
-            // Activity::create([
-            //     'name' => 'Curriculum de docente creado: '. $validated['name']. ' '. $validated['last_name'],
-            //     'user_id' => $user_id,
-            // ]);
+            $user_id = Auth::id();
+            Activity::create([
+                'name' => 'Curriculum de docente creado: '. $validated['name']. ' '. $validated['last_name'],
+                'user_id' => $user_id,
+            ]);
 
             // Emitir un toast de exito
             $message = __('messages.success.record_created');

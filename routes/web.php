@@ -25,6 +25,9 @@ Rutas para vista del administrador
 ========================================= */
 Route::middleware('auth')->group(function () {
     Route::get('/panel-administrador', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/panel-administrador/usuarios', [AdminController::class, 'users'])->name('admin.users');
+    Route::get('/panel-administrador/empresas', [AdminController::class, 'companies'])->name('admin.companies');
+    Route::get('/panel-administrador/programas-de-estudio', [AdminController::class, 'studyPrograms'])->name('admin.study-programs');
 });
 
 Route::get('/dashboard', function () {

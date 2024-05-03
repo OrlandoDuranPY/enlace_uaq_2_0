@@ -4,6 +4,8 @@ namespace App\Livewire\Vacancies;
 
 use App\Models\Vacancy;
 use Livewire\Component;
+use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Vacancy\VacancyRequest;
 
 class CreateVacancy extends Component
@@ -30,19 +32,19 @@ class CreateVacancy extends Component
     }
 
     public function storeVacancy(){
-        $valitated = $this->validate();
+        $validated = $this->validate();
         // dd($valitated);
 
         // Guardar la vacante en la base de datos
-        $vacancy = Vacancy::create($valitated);
+        $vacancy = Vacancy::create($validated);
 
         if($vacancy){
             // Crear el registro en la tabla actividades
-            // $user_id = Auth::id();
-            // Activity::create([
-            //     'name' => 'Vacante creada: '. $validated['company_name']. ': '. $validated['job_title'],
-            //     'user_id' => $user_id,
-            // ]);
+            $user_id = Auth::id();
+            Activity::create([
+                'name' => 'Vacante creada: '. $validated['company_name']. ' - '. $validated['job_title'],
+                'user_id' => $user_id,
+            ]);
 
             // Emitir un toast de exito
             $message = __('messages.success.record_created');

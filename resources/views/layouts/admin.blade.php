@@ -16,7 +16,7 @@
 
 <body class="w-full h-screen flex bg-gray-50">
     {{-- Sidebar --}}
-    <p>Sidebar</p>
+    <x-admin-sidebar />
     {{-- Main --}}
     @yield('content')
     @livewireScripts
