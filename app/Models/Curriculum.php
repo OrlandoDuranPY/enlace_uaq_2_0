@@ -77,6 +77,29 @@ class Curriculum extends Model
     }
 
     /* ========================================
+    Buscador
+    ========================================= */
+    public function scopeSearch($query, $searchTerm)
+    {
+        $searchTermForAcademicProgram = $searchTerm == 'Practicas profesionales' ? 'practices' : ($searchTerm == 'Empleo' ? 'job' : $searchTerm);
+
+        return $query->where('name', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('last_name', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('email', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('phone', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('about_me', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('semester', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('academic_achievement', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('academic_program', 'like', '%'.$searchTermForAcademicProgram.'%')
+                     ->orWhere('experience', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('project', 'like', '%'.$searchTerm.'%')
+                     ->orWhere('reference', 'like', '%'.$searchTerm.'%')
+                     ->orWhereHas('studyProgram', function ($query) use ($searchTerm) {
+                        $query->where('name', 'like', '%'.$searchTerm.'%');
+                    });
+    }
+
+    /* ========================================
     Relaciones con otras tablas
     ========================================= */
     public function studyProgram()

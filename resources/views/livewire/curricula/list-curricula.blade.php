@@ -2,7 +2,8 @@
     {{-- Buscador y Curriculums --}}
     <div class="h-full w-full lg:w-3/5 space-y-5 md:space-y-10 flex flex-col">
         {{-- Buscador --}}
-        <x-curricula-search-bar />
+        <x-curricula-search-bar :search="$search" :type="$type"/>
+        {{-- <input type="text" wire:model.live='search'> --}}
         <h1 class="text-xl lg:text-2xl font-semibold uppercase">Curriculums</h1>
         <!-- ========================================
                Grid de curriculums
