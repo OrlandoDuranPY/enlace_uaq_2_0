@@ -1,6 +1,6 @@
 <div class="flex-1 flex container mx-auto gap-10 overflow-hidden px-5 lg:px-0 mt-5 md:mt-0">
     {{-- Buscador y Curriculums --}}
-    <div class="h-full w-full lg:w-3/5 space-y-5 md:space-y-10 flex flex-col">
+    <div class="h-full w-full lg:w-3/5 space-y-5 md:space-y-10 flex flex-col p-0.5">
         {{-- Buscador --}}
         <x-curricula-search-bar :search="$search" :type="$type"/>
         {{-- <input type="text" wire:model.live='search'> --}}

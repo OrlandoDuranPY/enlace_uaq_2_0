@@ -58,4 +58,22 @@ class Vacancy extends Model
 
         return isset($newSlug) ? $newSlug : $slug;
     }
+
+
+    /* ========================================
+    Buscador
+    ========================================= */
+    public function scopeSearch($query, $searchTerm)
+    {
+
+        return $query->where('company_name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('company_location', 'like', '%' . $searchTerm . '%')
+            ->orWhere('job_title', 'like', '%' . $searchTerm . '%')
+            ->orWhere('salary', 'like', '%' . $searchTerm . '%')
+            ->orWhere('schedule', 'like', '%' . $searchTerm . '%')
+            ->orWhere('description', 'like', '%' . $searchTerm . '%')
+            ->orWhere('observations', 'like', '%' . $searchTerm . '%')
+            ->orWhere('contact_phone', 'like', '%' . $searchTerm . '%')
+            ->orWhere('contact_email', 'like', '%' . $searchTerm . '%');
+    }
 }
